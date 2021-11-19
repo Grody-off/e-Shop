@@ -11,7 +11,7 @@ namespace e_Shop.Services
             var emailMessage = new MimeMessage();
 
             emailMessage.From.Add(new MailboxAddress($"Customer {email}", email));
-            emailMessage.To.Add(new MailboxAddress("", "mr.payne0007@gmail.com"));
+            emailMessage.To.Add(new MailboxAddress("", "UR EMAIL"));
             emailMessage.Subject = subject;
             emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
             {
@@ -21,7 +21,7 @@ namespace e_Shop.Services
             using (var client = new SmtpClient())
             {
                 await client.ConnectAsync("smtp.gmail.com", 465, true);
-                await client.AuthenticateAsync("grody.off@gmail.com", "aixz muwt qkyq givi");
+                await client.AuthenticateAsync("UR EMAIL", "UR GOOGLE CODE");
                 await client.SendAsync(emailMessage);
 
                 await client.DisconnectAsync(true);
