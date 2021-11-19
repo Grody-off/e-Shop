@@ -1,0 +1,49 @@
+﻿@model e_Shop.Models.Cart
+@{ ViewData["Title"] = "Cart"; }
+
+<div class="container">
+    <table class="table">
+        <tr>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Price</td>
+            <td>Amount</td>
+            <td>
+                <form asp-action="ClearCart" method="post">
+                    <button type="submit" class="btn btn-sm btn-danger">Clear cart</button>
+                </form>
+            </td>
+        </tr>
+        @foreach (var product in @Model.Products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+
+                <td>
+                    @product.Amount
+                    @* <input type="number" value="@product.Amount"> *@
+                </td>
+                <td>
+                    <form asp-action="Delete" method="post" asp-route-id="@product.Id">
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        <td>
+            <form asp-action="MakeOrder" method="post">
+                <button type="submit" class="btn btn-sm btn-danger">Make order</button>
+            </form>
+        </td>
+        @* <tr> *@
+        @*     <td> *@
+        @*         <form asp-action="Update"> *@
+        @*             <a class="btn btn-sm btn-primary" asp-action="Update">Update</a> *@
+        @*         </form> *@
+        @*     </td> *@
+        @* </tr> *@
+    </table>
+
+</div>

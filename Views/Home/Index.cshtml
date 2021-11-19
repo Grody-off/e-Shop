@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Product>
+@{ ViewData["Title"] = "Home Page"; }
+
+
+<div class="container">
+    <div class="col">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-12 col-md-6 col-lg-4 mt-4">
+                    <form asp-action="AddToCart" asp-route-productId="@item.Id" asp-controller="Cart" method="post">
+                        <div class="card ">
+                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/@item.Amount@{}.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Name</h5>
+                                <p class="card-text">@item.Description</p>
+                                <h6 class="mb-3">
+                                    <span class="text-danger mr-1">$@item.Price</span>
+
+                                </h6>
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+</div>

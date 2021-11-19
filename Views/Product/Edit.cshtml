@@ -1,0 +1,23 @@
+﻿@{ ViewData["Title"] = "Edit"; }
+@model e_Shop.Models.Product
+
+<div class="row justify-content-center">
+    <div class="col-lg-9 col-xl-9">
+        <form asp-action="Edit" method="POST">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <input minlength="1" maxlength="80" asp-for="Name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" asp-for="Description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <input minlength="1" maxlength="80" asp-for="Price" class="form-control" required>
+            </div>
+            <div class="form-group" align="center">
+                <a href="@Context.Request.Headers["Referer"].ToString()" id="btn-back" class="mr-2 ml-2 btn btn-primary">Back</a>
+                <button id="btn-save" class="mr-2 ml-2 btn btn-success">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

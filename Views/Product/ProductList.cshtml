@@ -1,0 +1,27 @@
+﻿@{ViewData["Title"] = "Products";}
+@model List<e_Shop.Models.Product>
+
+<div class="container">
+    <div class="container" style="word-wrap:break-word;">
+        <a class="btn btn-lg btn-outline-success" asp-action="Create">Create new composition</a>
+        <br />
+        <br />
+    </div>
+
+    @foreach (var mod in Model)
+    {
+        <div class="container" style="word-wrap:break-word;">
+            <form asp-action="Delete" asp-route-id="@mod.Id" method="post">
+                <h4 class="text-left">@mod.Name</h4>
+                <h5 class="text-left">@mod.Description </h5>
+                <h5 class="text-left">@mod.Price </h5>
+                <h5 class="text-left">@mod.Amount </h5>
+                <a asp-action="Edit" asp-route-id="@mod.Id" method="post" class="mr-2 ml-2 btn btn-sm btn-warning">Edit</a>
+                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                <br />
+                <br />
+                <br />
+            </form>
+        </div>
+    }
+</div>

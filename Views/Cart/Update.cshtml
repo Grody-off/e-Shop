@@ -1,0 +1,29 @@
+﻿@model e_Shop.Models.Cart
+@{ ViewData["Title"] = "Update"; }
+
+@* <form asp-action="Update" method="post"> *@
+    <table class="table">
+        <tr>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Price</td>
+            <td>Amount</td>
+        </tr>
+        @foreach (var product in @Model.Products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                <td>
+                    <input type="number" value="@product.Amount">
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </td>
+        </tr>
+    </table>
+@* </form> *@
